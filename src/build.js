@@ -16,5 +16,5 @@ const pages = {
 
 // Write files
 for (const [file, tmpl] of Object.entries(pages)) {
-    fs.writeFileSync(path.join(out, file), tmpl(), "utf8");
+    fs.writeFileSync(path.join(out, file), tmpl, "utf8");
 }
