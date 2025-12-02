@@ -55,9 +55,6 @@ jobs:
       - name: Build HTML
         run: npm run build
 
-      - name: Add .nojekyll
-        run: echo "" > build/.nojekyll
-
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
         with:

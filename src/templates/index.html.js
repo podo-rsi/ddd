@@ -1,11 +1,63 @@
-module.exports = () => `
+module.exports = function(dddata) {
+    return `
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Home</title>
+<meta charset="UTF-8">
+<title>Dynamic to the max</title>
+<style>
+  body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  .letter {
+    font-size: 5em;
+    font-weight: bold;
+    transition: color 0.3s;
+    margin: 0 5px;
+  }
+</style>
 </head>
 <body>
-  <h1>Hello</h1>
+
+<div id="hello">
+  <span class="letter">D</span>
+  <span class="letter">Y</span>
+  <span class="letter">N</span>
+  <span class="letter">A</span>
+  <span class="letter">M</span>
+  <span class="letter">I</span>
+  <span class="letter">C</span>
+</div>
+<div id="dataId"></div>
+
+<script>
+const letters = document.querySelectorAll('.letter');
+
+function randomColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return \`rgb(${r},${g},${b})\`;
+}
+
+function blinkLetters() {
+  letters.forEach(letter => {
+    letter.style.color = randomColor();
+  });
+}
+
+document.getElementById("dataId").textContent = ${dddata};
+
+// Change colors every 300ms
+setInterval(blinkLetters, 300);
+</script>
+
 </body>
 </html>
 `;
+}
