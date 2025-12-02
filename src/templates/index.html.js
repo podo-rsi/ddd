@@ -51,7 +51,7 @@ function blinkLetters() {
   });
 }
 
-document.getElementById("dataId").textContent = '"' + ${dddata} + '"';
+document.getElementById("dataId").textContent = dddata;
 
 // Change colors every 300ms
 setInterval(blinkLetters, 300);
