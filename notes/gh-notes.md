@@ -80,6 +80,12 @@ const pages = {
   "index.html": require("./templates/index.html.js"),
 };
 
+// Ensure build folder exists
+fs.mkdirSync(out, { recursive: true });
+
+// Create .nojekyll automatically
+fs.writeFileSync(path.join(out, ".nojekyll"), "", "utf8");
+
 // Write files
 for (const [file, tmpl] of Object.entries(pages)) {
   fs.writeFileSync(path.join(out, file), tmpl(), "utf8");
