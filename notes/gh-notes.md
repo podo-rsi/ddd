@@ -99,3 +99,15 @@ module.exports = () => `
 </html>
 `;
 ```
+create package.json in root
+```json
+{
+  "name": "docs-site",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node src/build.js"
+  }
+}
+```
+run npm install
+commit package.json and pagkage-lock.json
